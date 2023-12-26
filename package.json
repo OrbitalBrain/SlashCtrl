@@ -1,0 +1,37 @@
+{
+  "name": "slashctrl",
+  "version": "0.1.0",
+  "description": "A Discord.Js Slash Command Manager",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "directories": {
+    "lib": "lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/OrbitalBrain/SlashCtrl.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "discordjs",
+    "slash",
+    "command"
+  ],
+  "author": "OrbitalBrain",
+  "bugs": {
+    "url": "https://github.com/OrbitalBrain/SlashCtrl/issues"
+  },
+  "files": [
+    "lib/**/*"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^14.14.1"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "typescript": "^5.3.3"
+  }
+}

@@ -1,0 +1,6 @@
+node_modules
+/lib
+.env
+/documentation/docs.json
+.tmp/
+.DS_Store

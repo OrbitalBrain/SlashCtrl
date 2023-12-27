@@ -1,4 +1,4 @@
-import { ChatInputCommandInteraction, SlashCommandBuilder } from "discord.js";
+import { CommandInteraction, SlashCommandBuilder } from "discord.js";
 
 export class SlashCommand extends SlashCommandBuilder {
 
@@ -13,7 +13,8 @@ export class SlashCommand extends SlashCommandBuilder {
      * @param interaction The interaction that triggered the command
      * @returns A promise that resolves when the command is finished executing
      */
-    public execute(interaction: ChatInputCommandInteraction): Promise<unknown> {
+    public async execute(interaction: CommandInteraction): Promise<unknown> {
+        await interaction.reply("This command has not been implemented yet!");
         throw new Error("Method not implemented.");
     }
 

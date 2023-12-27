@@ -3,6 +3,7 @@ import { CommandInteraction, SlashCommandBuilder } from "discord.js";
 export class SlashCommand extends SlashCommandBuilder {
 
     private _guilds?: string[];
+    public enabled: boolean = true;
 
     constructor() {
         super();

@@ -13,7 +13,8 @@
   },
   "scripts": {
     "build": "tsc",
-    "test": "jest --config jestconfig.json"
+    "test": "jest --config jestconfig.json",
+    "docs": "npx typedoc src/index.ts"
   },
   "keywords": [
     "discordjs",

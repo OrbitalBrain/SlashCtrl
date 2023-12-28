@@ -24,9 +24,9 @@ class SlashCtrl {
         for (const file of commandFiles) {
             const cmdDir = path.join(commandsPath, file);
             const command = new (require(cmdDir).default)();
-            commands.set(command.slashCommand.name, command);
+            commands.set(command.name, command);
         }
-        this.publishCommands(this._commands);
+        this.publishCommands(commands);
     }
 
     public async publishCommands(commands: Collection<string, SlashCommand>) {

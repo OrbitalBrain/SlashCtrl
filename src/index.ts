@@ -1,5 +1,5 @@
 export { SlashCtrl } from './SlashCtrl'
 
-export * from './structures/SlashCommand';
+export { SlashCommand} from './structures/SlashCommand';
 
-// export * from './types/types';
+export * from './types/types';

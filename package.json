@@ -4,6 +4,7 @@
   "description": "A Discord.Js Slash Command Manager",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
+  "homepage": "https://orbitalbrain.github.io/SlashCtrl/index.html",
   "directories": {
     "lib": "lib"
   },

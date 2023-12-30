@@ -1,6 +1,18 @@
 # SlashCtrl
 
+![Tests Status](https://github.com/orbitalbrain/slashctrl/actions/workflows/tests.yml/badge.svg)
+![NPM](https://img.shields.io/npm/l/slashctrl?label=License)
+![npm](https://img.shields.io/npm/v/slashctrl?label=Version)
+![Issues](https://img.shields.io/github/issues/orbitalbrain/slashctrl?label=Issues)
+![npm](https://img.shields.io/npm/dt/slashctrl?label=Downloads)
+[![Discord](https://img.shields.io/discord/1190566167589441606)](https://discord.gg/4g7sznXvXX)
+
+[![NPM](https://nodei.co/npm/slashctrl.png?downloads=true)](https://www.npmjs.com/package/slashctrl)  
+
+
 SlashCtrl is a package that makes it easier to create and manage slash commands with DiscordJS.
+
+Join the discord: https://discord.gg/4g7sznXvXX
 
 ## Features
 

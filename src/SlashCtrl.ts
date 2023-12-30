@@ -15,7 +15,7 @@ class SlashCtrl {
      * @private
      * @readonly
      * @type {string}
-     */ 
+     */
     private readonly _applicationId: string;
     /**
      * The token of the bot
@@ -68,11 +68,29 @@ class SlashCtrl {
         const rest = new REST({ version: "10" }).setToken(
             this._token
         );
+        const guildCommands = commands.filter((command) => command.guilds !== undefined && command.enabled);
+        const globalCommands = commands.filter((command) => command.guilds === undefined && command.enabled);
         try {
-            rest.put(
-                Routes.applicationCommands(this._applicationId),
-                { body: commands.filter((command => command.enabled)).map((command) => command.toJSON()) }
-            );
+
+            if (guildCommands.size > 0) {
+                console.log("Publishing guild commands")
+                guildCommands.forEach((command) => {
+                    command.guilds?.forEach((guild) => {
+                        console.log("Publishing guild commands")
+                        console.log(command.toJSON())
+                        rest.post(
+                            Routes.applicationGuildCommands(this._applicationId, guild),
+                            { body: command.toJSON() }
+                        );
+                    });
+                });
+            }
+            if (globalCommands.size > 0) {
+                rest.put(
+                    Routes.applicationCommands(this._applicationId),
+                    { body: globalCommands.map((command) => command.toJSON()) }
+                );
+            }
         } catch (error) {
             console.error(error);
         }

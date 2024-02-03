@@ -6,7 +6,8 @@
       "rootDir": "src",
       "esModuleInterop": true,
       "declaration": true,
-      "sourceMap": true
+      "sourceMap": true,
+      "allowJs": true
     },
     "include": ["src/**/*"],
     "exclude": ["node_modules", "**/*.spec.ts", "**/*.test.ts"]

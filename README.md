@@ -68,6 +68,10 @@ export default class ExampleCOmmand extends SlashCommand {
         this.setDescription("This is an example command");
     }
 
+    async execute(interaction: CommandInteraction) {
+        return interaction.reply({ content: "This is an example commands!", ephemeral: true });
+    }
+
 }
 ```
 

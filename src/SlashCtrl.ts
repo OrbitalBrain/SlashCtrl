@@ -48,7 +48,7 @@ class SlashCtrl {
     public async publishCommandsFromFolder(commandsPath: string) {
         const commandFiles = fs
             .readdirSync(commandsPath)
-            .filter((file) => file.endsWith(".ts"));
+            .filter((file) => (file.endsWith(".ts") || file.endsWith(".js")));
         const commands = new Collection<string, SlashCommand>();
         for (const file of commandFiles) {
             const cmdDir = path.join(commandsPath, file);

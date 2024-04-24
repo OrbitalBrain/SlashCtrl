@@ -99,8 +99,19 @@ class SlashCtrl {
     /**
      * Handle commands
      * @param interaction The interaction to handle
+     * @deprecated Use handleInteractions instead
      */
     public handleCommands(interaction: BaseInteraction) {
+        if (interaction.isCommand()) {
+            this.executeCommand(interaction as CommandInteraction);
+        }
+    }
+
+    /**
+     * Handle interactions
+     * @param interaction The interaction to handle
+     */
+    public s(interaction: BaseInteraction) {
         if (interaction.isCommand()) {
             this.executeCommand(interaction as CommandInteraction);
         }

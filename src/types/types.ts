@@ -1,3 +1,5 @@
+import { ButtonStyle } from "discord.js";
+
 /**
  * The settings for the SlashCtrl class.
  * @interface SlashCtrlSettings
@@ -7,4 +9,12 @@
 export interface SlashCtrlSettings {
     applicationId: string;
     token: string;
+    handleInteractions?: boolean;
+}
+
+export interface ButtonMetadata {
+    interactionHandler: string;
+    label: string;
+    style: ButtonStyle;
+    data?: string;
 }

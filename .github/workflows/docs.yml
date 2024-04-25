@@ -1,0 +1,64 @@
+name: Docs
+on:
+  push:
+    branches:
+      - '*'
+      - '!docs'
+    paths:
+      - "src/**"
+      - "docs/**"
+      - "package.json"
+      - ".github/workflows/docs.yml"
+  workflow_dispatch:
+
+jobs:
+  docs:
+    name: Documentation
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Node v16
+        uses: actions/setup-node@v4
+        with:
+          node-version: 16.x
+
+      - uses: pnpm/action-setup@v2
+        name: Install pnpm
+        id: pnpm-install
+        with:
+          version: 8
+          run_install: false
+
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+
+      - uses: actions/cache@v3
+        name: Setup pnpm cache
+        with:
+          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build documentation
+        run: pnpm run docs
+
+      - name: Deploy documentation
+        uses: dbots-pkg/action-docs@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Update docs in repo
+        uses: EndBug/add-and-commit@v9
+        with:
+          add: docs/*.md
+          message: 'chore(docs): auto-update docs'
